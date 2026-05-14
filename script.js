@@ -62,11 +62,9 @@ function dibujarAyudaVisual() {
     ctx.strokeStyle = "#ff0000";
     ctx.lineWidth = 5;
 
-    // Catetos
     ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(dx, ay); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(dx, ay); ctx.lineTo(dx, dy); ctx.stroke();
 
-    // Hipotenusa
     ctx.setLineDash([]);
     ctx.strokeStyle = "#2c3e50";
     ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(dx, dy); ctx.stroke();
@@ -78,20 +76,21 @@ function verificarRespuesta() {
     const texto = document.getElementById('texto-explicativo');
 
     if (r >= 7.0 && r <= 7.1) {
-        alert("¡Excelente Valentina! Dominas el Teorema de Pitágoras.");
+        alert("¡Excelente Valentina! Superaste el reto.");
         document.getElementById('avance').style.width = "40%";
         zona.style.display = "none";
         dibujarPlano();
     } else {
+        // Mantenemos la zona visible ANTES de dibujar
         zona.style.display = "block";
         texto.innerHTML = `
             <b>Pista Visual activa:</b><br>
             Mira el triángulo rojo en el plano.<br>
             1. Cuenta los cuadros de la base: son <b>7</b>.<br>
             2. Cuenta los cuadros de la altura: es <b>1</b>.<br>
-            3. Tu calculadora debe decir: <b>√(7² + 1²)</b><br>
-            <i>¡Tú puedes, Valentina!</i>
+            3. Tu calculadora debe decir: <b>√(7² + 1²)</b>
         `;
+        // Dibujamos el triángulo sin cerrar la zona de texto
         dibujarAyudaVisual();
     }
 }

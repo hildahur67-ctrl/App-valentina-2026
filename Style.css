@@ -1,0 +1,57 @@
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f4f8;
+    overflow: hidden; /* Evita el scroll innecesario en celular */
+}
+
+#app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+#progreso-bar {
+    width: 100%;
+    height: 10px;
+    background: #ecf0f1;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#avance {
+    width: 30%; /* Este valor cambiará dinámicamente */
+    height: 100%;
+    background: #27ae60;
+    transition: width 0.5s;
+}
+
+canvas {
+    flex-grow: 1;
+    touch-action: none; /* Crucial para detectar toques en celular sin mover la pantalla */
+    background: white;
+}
+
+.controles {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    border: none;
+    background: #3498db;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}

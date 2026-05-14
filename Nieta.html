@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Geo-Aprendizaje: 10° Teresiano</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>Explorador Geométrico</h1>
+            <div id="progreso-bar"><div id="avance"></div></div>
+        </header>
+
+        <main id="game-canvas">
+            <canvas id="plano"></canvas>
+        </main>
+
+        <section id="interaccion">
+            <div id="instruccion">Toca los puntos para medir la distancia.</div>
+            <div class="controles">
+                <button onclick="verificarPuntos()">Validar Avance</button>
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -9,18 +9,21 @@ const puntosTaller = [
     { nombre: 'E', x: 5, y: -1, color: '#f39c12' }
 ];
 
+let escala, centroX, centroY;
+
 function dibujarPlano() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
     const w = canvas.width;
     const h = canvas.height;
-    const centroX = w / 2;
-    const centroY = h / 2;
-    const escala = Math.min(w, h) / 12;
+    centroX = w / 2;
+    centroY = h / 2;
+    escala = Math.min(w, h) / 14;
 
     ctx.clearRect(0, 0, w, h);
 
-    // Dibujar cuadrícula
+    // Cuadrícula
+    ctx.setLineDash([]); // Asegurar líneas sólidas
     ctx.strokeStyle = '#f0f0f0';
     for(let i = -10; i <= 10; i++) {
         ctx.beginPath();
@@ -37,7 +40,7 @@ function dibujarPlano() {
     ctx.beginPath(); ctx.moveTo(centroX, 0); ctx.lineTo(centroX, h); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(0, centroY); ctx.lineTo(w, centroY); ctx.stroke();
 
-    // Puntos del taller
+    // Puntos
     puntosTaller.forEach(p => {
         const px = centroX + (p.x * escala);
         const py = centroY - (p.y * escala);
@@ -50,30 +53,75 @@ function dibujarPlano() {
     });
 }
 
+function dibujarAyudaVisual() {
+    // Redibujamos todo primero
+    dibujarPlano();
+    
+    // Pequeño truco: esperamos 100ms para asegurar que el canvas esté listo
+    setTimeout(() => {
+        const a = puntosTaller[0]; // A(-4, 2)
+        const d = puntosTaller[3]; // D(3, 3)
+        
+        const ax = centroX + (a.x * escala);
+        const ay = centroY - (a.y * escala);
+        const dx = centroX + (d.x * escala);
+        const dy = centroY - (d.y * escala);
+
+        // CONFIGURACIÓN DEL TRIÁNGULO
+        ctx.setLineDash([5, 5]);
+        ctx.strokeStyle = "#ff0000"; // Rojo brillante
+        ctx.lineWidth = 4;
+        
+        // Base (Eje X)
+        ctx.beginPath();
+        ctx.moveTo(ax, ay);
+        ctx.lineTo(dx, ay);
+        ctx.stroke();
+        
+        // Altura (Eje Y)
+        ctx.beginPath();
+        ctx.moveTo(dx, ay);
+        ctx.lineTo(dx, dy);
+        ctx.stroke();
+
+        // Hipotenusa (Línea de distancia)
+        ctx.setLineDash([]);
+        ctx.strokeStyle = "#2c3e50";
+        ctx.beginPath();
+        ctx.moveTo(ax, ay);
+        ctx.lineTo(dx, dy);
+        ctx.stroke();
+        
+        console.log("Triángulo dibujado");
+    }, 100);
+}
+
 function verificarRespuesta() {
-    const r = parseFloat(document.getElementById('resultado-usuario').value);
+    const input = document.getElementById('resultado-usuario');
+    const r = parseFloat(input.value);
     const zona = document.getElementById('explicacion-zona');
     const texto = document.getElementById('texto-explicativo');
     const barra = document.getElementById('avance');
 
-    // La distancia AD es sqrt(7^2 + 1^2) = sqrt(50) ≈ 7.07
     if (r >= 7.0 && r <= 7.1) {
-        alert("¡Excelente Valentina! Has calculado la distancia correctamente.");
-        barra.style.width = "60%";
+        alert("¡Excelente Valentina! Has superado el primer reto de Geometría.");
+        barra.style.width = "40%";
         zona.style.display = "none";
+        dibujarPlano();
     } else {
         zona.style.display = "block";
         texto.innerHTML = `
-            <b>¡Pista para Valentina!</b><br>
-            Para hallar la distancia entre A(-4,2) y D(3,3):<br>
-            1. Resta las X: 3 - (-4) = <b>7</b><br>
-            2. Resta las Y: 3 - 2 = <b>1</b><br>
-            3. Eleva al cuadrado: 7² + 1² = <b>50</b><br>
-            4. Tu resultado debe ser la <b>raíz de 50</b>.<br>
-            <i>(Usa la calculadora y pon el número con decimales)</i>
+            <b>¡Mira el plano, Valentina!</b><br>
+            He dibujado un triángulo para que cuentes los cuadros:<br>
+            - La base mide <b>7</b> cuadros.<br>
+            - La altura mide <b>1</b> cuadro.<br>
+            Aplica Pitágoras: d = √(7² + 1²)
         `;
+        dibujarAyudaVisual();
     }
 }
 
 window.addEventListener('resize', dibujarPlano);
+// Asegurar que se dibuje al cargar
+window.onload = dibujarPlano;
 dibujarPlano();

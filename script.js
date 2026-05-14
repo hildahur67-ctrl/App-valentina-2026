@@ -22,8 +22,8 @@ function dibujarPlano() {
 
     ctx.clearRect(0, 0, w, h);
 
-    // Cuadrícula
-    ctx.setLineDash([]); // Asegurar líneas sólidas
+    // Cuadrícula básica
+    ctx.setLineDash([]);
     ctx.strokeStyle = '#f0f0f0';
     for(let i = -10; i <= 10; i++) {
         ctx.beginPath();
@@ -34,13 +34,13 @@ function dibujarPlano() {
         ctx.stroke();
     }
 
-    // Ejes
+    // Ejes principales
     ctx.strokeStyle = '#2c3e50';
     ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(centroX, 0); ctx.lineTo(centroX, h); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(0, centroY); ctx.lineTo(w, centroY); ctx.stroke();
 
-    // Puntos
+    // Dibujar puntos del taller
     puntosTaller.forEach(p => {
         const px = centroX + (p.x * escala);
         const py = centroY - (p.y * escala);
@@ -54,74 +54,59 @@ function dibujarPlano() {
 }
 
 function dibujarAyudaVisual() {
-    // Redibujamos todo primero
+    // Primero limpiamos y dibujamos el plano normal
     dibujarPlano();
-    
-    // Pequeño truco: esperamos 100ms para asegurar que el canvas esté listo
-    setTimeout(() => {
-        const a = puntosTaller[0]; // A(-4, 2)
-        const d = puntosTaller[3]; // D(3, 3)
-        
-        const ax = centroX + (a.x * escala);
-        const ay = centroY - (a.y * escala);
-        const dx = centroX + (d.x * escala);
-        const dy = centroY - (d.y * escala);
 
-        // CONFIGURACIÓN DEL TRIÁNGULO
-        ctx.setLineDash([5, 5]);
-        ctx.strokeStyle = "#ff0000"; // Rojo brillante
-        ctx.lineWidth = 4;
-        
-        // Base (Eje X)
-        ctx.beginPath();
-        ctx.moveTo(ax, ay);
-        ctx.lineTo(dx, ay);
-        ctx.stroke();
-        
-        // Altura (Eje Y)
-        ctx.beginPath();
-        ctx.moveTo(dx, ay);
-        ctx.lineTo(dx, dy);
-        ctx.stroke();
+    // Dibujamos el triángulo de Pitágoras con líneas gruesas
+    const a = puntosTaller[0]; 
+    const d = puntosTaller[3]; 
+    const ax = centroX + (a.x * escala);
+    const ay = centroY - (a.y * escala);
+    const dx = centroX + (d.x * escala);
+    const dy = centroY - (d.y * escala);
 
-        // Hipotenusa (Línea de distancia)
-        ctx.setLineDash([]);
-        ctx.strokeStyle = "#2c3e50";
-        ctx.beginPath();
-        ctx.moveTo(ax, ay);
-        ctx.lineTo(dx, dy);
-        ctx.stroke();
-        
-        console.log("Triángulo dibujado");
-    }, 100);
+    ctx.setLineDash([5, 5]);
+    ctx.strokeStyle = "#ff0000"; // Rojo puro
+    ctx.lineWidth = 5; // Muy grueso para que se vea bien
+
+    // Lado Horizontal
+    ctx.beginPath();
+    ctx.moveTo(ax, ay);
+    ctx.lineTo(dx, ay);
+    ctx.stroke();
+
+    // Lado Vertical
+    ctx.beginPath();
+    ctx.moveTo(dx, ay);
+    ctx.lineTo(dx, dy);
+    ctx.stroke();
+
+    // Línea de Distancia (Hipotenusa)
+    ctx.setLineDash([]);
+    ctx.strokeStyle = "#2c3e50";
+    ctx.beginPath();
+    ctx.moveTo(ax, ay);
+    ctx.lineTo(dx, dy);
+    ctx.stroke();
 }
 
 function verificarRespuesta() {
-    const input = document.getElementById('resultado-usuario');
-    const r = parseFloat(input.value);
+    const val = document.getElementById('resultado-usuario').value;
+    const r = parseFloat(val);
     const zona = document.getElementById('explicacion-zona');
     const texto = document.getElementById('texto-explicativo');
-    const barra = document.getElementById('avance');
 
     if (r >= 7.0 && r <= 7.1) {
-        alert("¡Excelente Valentina! Has superado el primer reto de Geometría.");
-        barra.style.width = "40%";
+        alert("¡Excelente Valentina! Superaste el reto.");
+        document.getElementById('avance').style.width = "40%";
         zona.style.display = "none";
         dibujarPlano();
     } else {
         zona.style.display = "block";
-        texto.innerHTML = `
-            <b>¡Mira el plano, Valentina!</b><br>
-            He dibujado un triángulo para que cuentes los cuadros:<br>
-            - La base mide <b>7</b> cuadros.<br>
-            - La altura mide <b>1</b> cuadro.<br>
-            Aplica Pitágoras: d = √(7² + 1²)
-        `;
+        texto.innerHTML = "<b>¡Atención Valentina!</b> He dibujado el triángulo de Pitágoras en el plano. Cuenta los cuadros rojos para hallar la distancia.";
         dibujarAyudaVisual();
     }
 }
 
-window.addEventListener('resize', dibujarPlano);
-// Asegurar que se dibuje al cargar
 window.onload = dibujarPlano;
-dibujarPlano();
+window.onresize = dibujarPlano;

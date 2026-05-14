@@ -1,9 +1,9 @@
-
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f4f8;
-    overflow: hidden; /* Evita el scroll innecesario en celular */
+    overflow: hidden;
+    touch-action: manipulation;
 }
 
 #app-container {
@@ -15,43 +15,75 @@ body {
 header {
     background: #2c3e50;
     color: white;
-    padding: 15px;
+    padding: 10px;
     text-align: center;
 }
 
 #progreso-bar {
-    width: 100%;
-    height: 10px;
-    background: #ecf0f1;
-    border-radius: 5px;
-    margin-top: 10px;
+    width: 90%;
+    height: 8px;
+    background: #455a64;
+    border-radius: 10px;
+    margin: 10px auto;
+    overflow: hidden;
 }
 
 #avance {
-    width: 30%; /* Este valor cambiará dinámicamente */
+    width: 20%;
     height: 100%;
-    background: #27ae60;
-    transition: width 0.5s;
+    background: #4caf50;
+    transition: width 0.5s ease;
 }
 
 canvas {
     flex-grow: 1;
-    touch-action: none; /* Crucial para detectar toques en celular sin mover la pantalla */
-    background: white;
+    background: #ffffff;
+    border-bottom: 2px solid #ddd;
 }
 
-.controles {
-    padding: 20px;
+#interaccion {
+    padding: 15px;
+    background: white;
+    min-height: 200px;
+}
+
+#instruccion {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.entrada-datos {
     display: flex;
     justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input[type="number"] {
+    width: 120px;
+    padding: 12px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
 }
 
 button {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    border-radius: 50px;
-    border: none;
+    padding: 12px 25px;
     background: #3498db;
     color: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.alerta-tutorial {
+    background: #fff9c4;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #fbc02d;
+    font-size: 14px;
+    line-height: 1.5;
 }

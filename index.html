@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Geo-Aprendizaje Valentina</title>
+    <title>Geo-Entrenador Valentina</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app-container">
         <header>
-            <h1>Explorador Geométrico</h1>
+            <h1>Taller de Geometría 10°</h1>
+            <select id="selector-ejercicio" onchange="cambiarEjercicio()">
+                <option value="0">Punto 1: Perímetro de Polígono</option>
+                <option value="1">Punto 2: Ecuación Diámetro AB</option>
+                <option value="2">Punto 6: Tipo de Triángulo</option>
+                <option value="3">Punto 7: Perímetro y Triángulo Rectángulo</option>
+            </select>
             <div id="progreso-bar"><div id="avance"></div></div>
         </header>
 
@@ -18,21 +24,23 @@
         </main>
 
         <section id="interaccion">
-            <div id="instruccion"><b>Hito 1:</b> Hallar la distancia entre A y D</div>
+            <div id="instruccion">Cargando reto...</div>
             
-            <div class="entrada-datos">
-                <input type="number" id="resultado-usuario" placeholder="Ej: 7.07" step="0.01">
-                <button onclick="verificarRespuesta()">Validar</button>
+            <div class="panel-practica">
+                <div id="inputs-coordenadas"></div>
+                <div class="entrada-respuesta">
+                    <input type="number" id="resultado-usuario" placeholder="Respuesta" step="0.01">
+                    <button onclick="verificarRespuesta()">Validar</button>
+                </div>
             </div>
 
             <div id="explicacion-zona" style="display:none;">
                 <div class="alerta-tutorial">
                     <p id="texto-explicativo"></p>
-                    <button class="btn-pequeno" onclick="dibujarAyudaVisual()">Ver Ayuda Visual</button>
                 </div>
             </div>
         </section>
     </div>
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>

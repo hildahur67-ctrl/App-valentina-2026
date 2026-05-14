@@ -1,89 +1,16 @@
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8;
-    overflow: hidden;
-    touch-action: manipulation;
-}
-
-#app-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
-header {
-    background: #2c3e50;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-
-#progreso-bar {
-    width: 90%;
-    height: 8px;
-    background: #455a64;
-    border-radius: 10px;
-    margin: 10px auto;
-    overflow: hidden;
-}
-
-#avance {
-    width: 20%;
-    height: 100%;
-    background: #4caf50;
-    transition: width 0.5s ease;
-}
-
-canvas {
-    flex-grow: 1;
-    background: #ffffff;
-    border-bottom: 2px solid #ddd;
-}
-
-#interaccion {
-    padding: 15px;
-    background: white;
-    min-height: 200px;
-}
-
-#instruccion {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #34495e;
-}
-
-.entrada-datos {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-input[type="number"] {
-    width: 120px;
-    padding: 12px;
-    border: 2px solid #3498db;
-    border-radius: 8px;
-    font-size: 16px;
-    outline: none;
-}
-
-button {
-    padding: 12px 25px;
-    background: #3498db;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.alerta-tutorial {
-    background: #fff9c4;
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 5px solid #fbc02d;
-    font-size: 14px;
-    line-height: 1.5;
-}
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #f0f4f8; overflow: hidden; touch-action: manipulation; }
+#app-container { display: flex; flex-direction: column; height: 100vh; }
+header { background: #2c3e50; color: white; padding: 10px; text-align: center; }
+#selector-ejercicio { width: 90%; padding: 8px; border-radius: 5px; margin-bottom: 5px; font-size: 14px; }
+#progreso-bar { width: 90%; height: 8px; background: #455a64; border-radius: 10px; margin: 5px auto; overflow: hidden; }
+#avance { width: 10%; height: 100%; background: #4caf50; transition: width 0.5s ease; }
+canvas { flex-grow: 1; background: #ffffff; border-bottom: 1px solid #ddd; }
+#interaccion { padding: 10px; background: white; min-height: 220px; overflow-y: auto; }
+#instruccion { font-size: 14px; color: #2c3e50; font-weight: bold; margin-bottom: 8px; }
+.panel-practica { display: flex; flex-direction: column; gap: 8px; }
+#inputs-coordenadas { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; font-size: 12px; }
+.input-punto { padding: 5px; border: 1px solid #3498db; border-radius: 4px; width: 60px; }
+.entrada-respuesta { display: flex; gap: 10px; justify-content: center; margin-top: 5px; }
+input[type="number"] { padding: 10px; border: 2px solid #3498db; border-radius: 8px; width: 100px; font-size: 16px; }
+button { padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 8px; font-weight: bold; }
+.alerta-tutorial { background: #fff9c4; padding: 10px; border-radius: 8px; border-left: 5px solid #fbc02d; font-size: 13px; line-height: 1.4; }

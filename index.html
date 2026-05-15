@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Geo-Entrenador Valentina</title>
+    <title>Geo-Master Valentina</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app-container">
         <header>
-            <h1>Apoyo Geometría Teresiano</h1>
+            <h1>Taller Geometría Teresiano</h1>
             <select id="selector-ejercicio" onchange="cambiarEjercicio()">
-                <option value="0">Punto 1: Polígono y Perímetro</option>
-                <option value="1">Punto 2: Ecuación y Diámetro</option>
-                <option value="2">Punto 6: Tipo de Triángulo</option>
-                <option value="3">Punto 9: Trazo de Circunferencia</option>
+                <option value="0">Punto 1: Perímetro Polígono</option>
+                <option value="1">Punto 2: Diámetro AB</option>
+                <option value="2">Punto 3: Ec. General a Canónica</option>
+                <option value="3">Punto 4: Análisis de Plano</option>
+                <option value="4">Punto 5: Ec. Canónica y General</option>
+                <option value="5">Punto 6: Tipo de Triángulo</option>
+                <option value="6">Punto 7: Triángulo DEF</option>
+                <option value="7">Punto 8: Radio y Centro</option>
+                <option value="8">Punto 9: Trazo (Radio 1.6)</option>
+                <option value="9">Punto 10: Trazo (Radio 2.0)</option>
             </select>
+            <div id="progreso-bar"><div id="avance"></div></div>
         </header>
-
-        <main id="game-canvas">
-            <canvas id="plano"></canvas>
-        </main>
-
+        <main id="game-canvas"><canvas id="plano"></canvas></main>
         <section id="interaccion">
-            <div id="instruccion">Selecciona un ejercicio para empezar</div>
-            
+            <div id="instruccion">Cargando taller...</div>
             <div class="entrada-respuesta">
-                <input type="number" id="resultado-usuario" placeholder="Respuesta" step="0.01">
-                <button onclick="verificarRespuesta()">Validar</button>
+                <input type="number" id="resultado-usuario" placeholder="Dato/Radio" step="0.01">
+                <button onclick="verificarRespuesta()">Validar Hito</button>
             </div>
-
             <div id="explicacion-zona" style="display:none;">
-                <div class="alerta-tutorial">
-                    <p id="texto-explicativo"></p>
-                </div>
+                <div class="alerta-tutorial"><p id="texto-explicativo"></p></div>
             </div>
         </section>
     </div>
-    <script src="script.js?v=6"></script>
+    <script src="script.js?v=7"></script>
 </body>
 </html>

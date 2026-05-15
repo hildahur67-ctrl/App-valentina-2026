@@ -2,27 +2,16 @@ const canvas = document.getElementById('plano');
 const ctx = canvas.getContext('2d');
 
 const taller = [
-    { 
-        id: 1, 
-        titulo: "Puntos 1, 4, 6 y 7: Distancia y Perímetro",
-        desc: "Halla la distancia entre puntos para calcular perímetros o tipos de triángulos[cite: 9, 51, 52].",
-        formula: "d = √((x₂ - x₁)² + (y₂ - y₁)²)",
-        p: [{n:'A',x:-4,y:2},{n:'D',x:3,y:3}]
-    },
-    { 
-        id: 3, 
-        titulo: "Punto 3: Ecuación General a Canónica",
-        desc: "Transforma x² + y² + Dx + Ey + F = 0 para hallar el Centro (h, k) y el Radio (r)[cite: 25].",
-        formula: "(x - h)² + (y - k)² = r²",
-        p: [{n:'Centro',x:5,y:6}] // Ejemplo de la ecuación 3.a
-    },
-    { 
-        id: 2, 
-        titulo: "Puntos 2, 5, 8 y 10: Ecuación de la Circunferencia",
-        desc: "Encuentra la ecuación usando el centro y el radio o el diámetro[cite: 23, 43, 64, 75].",
-        formula: "(x - h)² + (y - k)² = r²",
-        p: [{n:'A',x:1,y:6},{n:'B',x:13,y:8}]
-    }
+    { id: 1, t: "Distancia", d: "Punto 1: Perímetro del Polígono. Calcula d(AB), d(BC), d(CD), d(DE) y d(EA).", f: "d = √((x₂-x₁)² + (y₂-y₁)²)", p: [{n:'A',x:-4,y:2},{n:'B',x:-5,y:-2},{n:'C',x:1,y:-4},{n:'D',x:3,y:3},{n:'E',x:5,y:-1}] },
+    { id: 2, t: "Punto Medio", d: "Punto 2: Halla el centro de la circunferencia con diámetro A(1,6) y B(13,8).", f: "M = ((x₁+x₂)/2 , (y₁+y₂)/2)", p: [{n:'A',x:1,y:6},{n:'B',x:13,y:8}] },
+    { id: 3, t: "Completar Cuadrados", d: "Punto 3: Pasa x²+y²-10x-12y+20=0 a canónica.", f: "(x-h)² + (y-k)² = r²", p: [{n:'C',x:5,y:6}] },
+    { id: 4, t: "Distancia AD", d: "Punto 4: Según el plano, calcula la longitud del segmento AD.", f: "d = √((x₂-x₁)² + (y₂-y₁)²)", p: [{n:'D',x:-2,y:2},{n:'A',x:3,y:3}] },
+    { id: 5, t: "Ec. Canónica", d: "Punto 5: Halla la ecuación con C(-3,8) y r=2.5.", f: "(x-h)² + (y-k)² = r²", p: [{n:'C',x:-3,y:8}] },
+    { id: 6, t: "Triángulos", d: "Punto 6: ¿Es Isósceles o Equilátero? Calcula AB, BC y CA.", f: "Distancias Iguales = Tipo", p: [{n:'A',x:-1,y:2},{n:'B',x:-2,y:5},{n:'C',x:-4,y:1}] },
+    { id: 7, t: "Perímetro DEF", d: "Punto 7: Determina el perímetro de D(6,5), E(3,7) y F(2,-1).", f: "P = d(DE)+d(EF)+d(FD)", p: [{n:'D',x:6,y:5},{n:'E',x:3,y:7},{n:'F',x:2,y:-1}] },
+    { id: 8, t: "Radio", d: "Punto 8: Escribe el radio de (x-8)²+(y-1)² = √156.", f: "r² = Valor final", p: [{n:'C',x:8,y:1}] },
+    { id: 9, t: "Trazo 1.6", d: "Punto 9: Traza la circunferencia con Centro (-1,0) y radio 1.6.", f: "Radio = 1.6 cm", p: [{n:'C',x:-1,y:0}] },
+    { id: 10, t: "Trazo 2.0", d: "Punto 10: Centro (-5,-2.5) y radio 2 unidades.", f: "Radio = 2.0 cm", p: [{n:'C',x:-5,y:-2.5}] }
 ];
 
 let ejActual = 0;
@@ -36,45 +25,30 @@ function dibujarPlano() {
     escala = Math.min(canvas.width, canvas.height) / 22;
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Cuadrícula y Ejes
-    ctx.strokeStyle = '#f0f0f0'; ctx.lineWidth = 1;
+    ctx.strokeStyle = '#f0f0f0';
     for(let i=-20; i<=20; i++) {
         ctx.beginPath(); ctx.moveTo(centroX+i*escala,0); ctx.lineTo(centroX+i*escala,canvas.height); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(0,centroY+i*escala); ctx.lineTo(canvas.width,centroY+i*escala); ctx.stroke();
     }
-    ctx.strokeStyle = '#34495e'; ctx.lineWidth = 2;
+    ctx.strokeStyle = '#2c3e50'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(centroX,0); ctx.lineTo(centroX,canvas.height); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(0,centroY,canvas.width,centroY); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0,centroY); ctx.lineTo(canvas.width,centroY); ctx.stroke();
 
-    // Puntos
     taller[ejActual].p.forEach(p => {
         const px = centroX + (p.x * escala); const py = centroY - (p.y * escala);
-        ctx.fillStyle = '#e74c3c'; ctx.beginPath(); ctx.arc(px, py, 7, 0, Math.PI*2); ctx.fill();
+        ctx.fillStyle = '#e74c3c'; ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI*2); ctx.fill();
         ctx.fillStyle = '#2c3e50'; ctx.font = "bold 12px Arial";
-        ctx.fillText(`${p.n}(${p.x},${p.y})`, px+10, py-10);
+        ctx.fillText(`${p.n}(${p.x},${p.y})`, px+8, py-8);
     });
-
-    // Si es ejercicio de circunferencia, dibujar el círculo guía
-    if(ejActual === 1) {
-        ctx.strokeStyle = 'rgba(52, 152, 219, 0.3)';
-        ctx.beginPath();
-        ctx.arc(centroX + (5 * escala), centroY - (6 * escala), 9 * escala, 0, Math.PI*2);
-        ctx.stroke();
-    }
 }
 
 function cambiarEjercicio() {
-    const selector = document.getElementById('selector-ejercicio');
-    ejActual = parseInt(selector.value);
-    const ejercicio = taller[ejActual];
-
+    ejActual = parseInt(document.getElementById('selector-ejercicio').value);
+    const e = taller[ejActual];
     document.getElementById('instruccion').innerHTML = `
-        <div style="color:#2c3e50; font-weight:bold; border-bottom: 2px solid #3498db; margin-bottom:8px;">${ejercicio.titulo}</div>
-        <p style="font-size:13px; margin:5px 0;">${ejercicio.desc}</p>
-        <div style="background:#e8f4f8; padding:10px; border-radius:5px; font-family: 'Courier New', monospace; font-size:14px; text-align:center;">
-            ${ejercicio.formula}
-        </div>
+        <div style="font-weight:bold; color:#3498db;">${e.t}</div>
+        <p style="font-size:13px;">${e.d}</p>
+        <div style="background:#f4f7f6; padding:8px; border-radius:4px; font-family:monospace;">Fórmula: ${e.f}</div>
     `;
     document.getElementById('explicacion-zona').style.display = "none";
     dibujarPlano();
@@ -83,19 +57,18 @@ function cambiarEjercicio() {
 function verificarRespuesta() {
     const zona = document.getElementById('explicacion-zona');
     zona.style.display = "block";
-    const texto = document.getElementById('texto-explicativo');
-
-    if(ejActual === 1) { // Explicación para Punto 3
-        texto.innerHTML = `
-            <b>Paso a Paso (Punto 3.a):</b><br>
-            1. Agrupa: (x² - 10x) + (y² - 12y) = -20<br>
-            2. Completa cuadrados: (10/2)² = <b>25</b> y (12/2)² = <b>36</b><br>
-            3. Suma a ambos lados: ... = -20 + 25 + 36 = <b>41</b><br>
-            4. Ecuación: (x - 5)² + (y - 6)² = 41<br>
-            <b>Centro: (5, 6) | Radio: √41 ≈ 6.4</b>
-        `;
-    } else {
-        texto.innerHTML = `Usa la fórmula: <b>${taller[ejActual].formula}</b>. Revisa los puntos en el plano y calcula con cuidado.`;
+    document.getElementById('texto-explicativo').innerHTML = `
+        <b>Guía Visual:</b><br>
+        Usa los puntos rojos para aplicar: ${taller[ejActual].f}.<br>
+        Recuerda que para el colegio debes mostrar el procedimiento completo.
+    `;
+    // Dibujar ayuda visual (triángulo de Pitágoras) entre los primeros dos puntos
+    if(taller[ejActual].p.length >= 2) {
+        const p1 = taller[ejActual].p[0]; const p2 = taller[ejActual].p[1];
+        ctx.setLineDash([5, 5]); ctx.strokeStyle = "#ff0000"; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(centroX+p1.x*escala, centroY-p1.y*escala);
+        ctx.lineTo(centroX+p2.x*escala, centroY-p1.y*escala);
+        ctx.lineTo(centroX+p2.x*escala, centroY-p2.y*escala); ctx.stroke();
     }
 }
 

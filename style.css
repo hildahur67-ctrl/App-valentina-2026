@@ -2,119 +2,89 @@ body {
     margin: 0; 
     font-family: 'Segoe UI', sans-serif; 
     background-color: #f0f4f8; 
-    overflow: hidden; 
-    touch-action: manipulation; 
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ocupa toda la altura */
 }
+
 #app-container { 
     display: flex; 
     flex-direction: column; 
-    height: 100vh; 
+    height: 100%; 
 }
+
 header { 
     background: #2c3e50; 
     color: white; 
     padding: 10px; 
     text-align: center; 
-    z-index: 10;
+    flex-shrink: 0; /* No se encoge */
 }
+
 #selector-ejercicio { 
-    width: 90%; 
+    width: 95%; 
     padding: 10px; 
     border-radius: 8px; 
     font-size: 14px; 
-    margin-top: 5px;
-}
-#progreso-bar { 
-    width: 90%; 
-    height: 8px; 
-    background: #455a64; 
-    border-radius: 10px; 
-    margin: 8px auto; 
-    overflow: hidden; 
-}
-#avance { 
-    width: 10%; 
-    height: 100%; 
-    background: #4caf50; 
-    transition: width 0.5s ease; 
 }
 
-/* AQUÍ EL AJUSTE PARA BAJAR Y CENTRAR EL PLANO */
+/* Ajuste del Plano */
 #game-canvas { 
-    flex-grow: 1; 
+    flex: 0 0 40vh; /* El plano ocupa el 40% de la pantalla fija */
+    background: #ffffff; 
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #ffffff; 
-    padding-top: 20px; /* Baja el plano un poco */
-    padding-bottom: 10px;
-}
-canvas { 
-    max-width: 95%;
-    max-height: 95%;
-    border: 1px solid #eee;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    border-radius: 8px;
 }
 
+canvas { 
+    width: 100%;
+    height: 100%;
+}
+
+/* ZONA CON SCROLL ACTIVO */
 #interaccion { 
+    flex: 1; /* Ocupa el resto del espacio */
     padding: 15px; 
     background: white; 
-    min-height: 240px; 
-    border-top: 2px solid #ecf0f1;
-    overflow-y: auto; 
+    overflow-y: auto; /* PERMITE EL SCROLL AQUÍ */
+    -webkit-overflow-scrolling: touch; /* Suavidad en iPhone */
+    border-top: 2px solid #ddd;
 }
+
 #instruccion { 
     font-size: 15px; 
-    color: #2c3e50; 
     font-weight: bold; 
-    margin-bottom: 12px; 
-    text-align: center;
+    margin-bottom: 10px;
 }
-.panel-practica { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 10px; 
-}
-#inputs-coordenadas { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 10px; 
-}
-.input-punto { 
-    padding: 8px; 
-    border: 1px solid #3498db; 
-    border-radius: 6px; 
-    width: 70px; 
-    font-size: 14px;
-}
+
 .entrada-respuesta { 
     display: flex; 
-    gap: 12px; 
+    gap: 10px; 
     justify-content: center; 
-    margin-top: 10px; 
+    margin-bottom: 20px;
 }
-input[type="number"]#resultado-usuario { 
+
+input[type="number"] { 
     padding: 12px; 
-    border: 2px solid #2ecc71; 
-    border-radius: 10px; 
-    width: 110px; 
-    font-size: 18px; 
+    border: 2px solid #3498db; 
+    border-radius: 8px; 
+    width: 100px;
 }
+
 button { 
-    padding: 12px 25px; 
-    background: #2ecc71; 
+    padding: 12px; 
+    background: #3498db; 
     color: white; 
     border: none; 
-    border-radius: 10px; 
-    font-weight: bold; 
-    cursor: pointer;
+    border-radius: 8px; 
+    font-weight: bold;
 }
+
 .alerta-tutorial { 
     background: #fff9c4; 
-    padding: 12px; 
+    padding: 15px; 
     border-radius: 8px; 
     border-left: 5px solid #fbc02d; 
-    margin-top: 10px;
-    font-size: 14px; 
+    margin-bottom: 30px; /* Espacio extra al final para el scroll */
 }

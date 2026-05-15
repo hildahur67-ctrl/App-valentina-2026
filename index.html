@@ -9,14 +9,13 @@
 <body>
     <div id="app-container">
         <header>
-            <h1>Geometría 10°</h1>
+            <h1>Apoyo Geometría Teresiano</h1>
             <select id="selector-ejercicio" onchange="cambiarEjercicio()">
-                <option value="0">Punto 1: Perímetro Polígono</option>
-                <option value="1">Punto 2: Diámetro AB</option>
+                <option value="0">Punto 1: Polígono y Perímetro</option>
+                <option value="1">Punto 2: Ecuación y Diámetro</option>
                 <option value="2">Punto 6: Tipo de Triángulo</option>
-                <option value="3">Punto 7: Reto Final</option>
+                <option value="3">Punto 9: Trazo de Circunferencia</option>
             </select>
-            <div id="progreso-bar"><div id="avance"></div></div>
         </header>
 
         <main id="game-canvas">
@@ -24,14 +23,13 @@
         </main>
 
         <section id="interaccion">
-            <div id="instruccion">Cargando reto...</div>
-            <div class="panel-practica">
-                <div id="inputs-coordenadas"></div>
-                <div class="entrada-respuesta">
-                    <input type="number" id="resultado-usuario" placeholder="Respuesta" step="0.01">
-                    <button onclick="verificarRespuesta()">Validar</button>
-                </div>
+            <div id="instruccion">Selecciona un ejercicio para empezar</div>
+            
+            <div class="entrada-respuesta">
+                <input type="number" id="resultado-usuario" placeholder="Respuesta" step="0.01">
+                <button onclick="verificarRespuesta()">Validar</button>
             </div>
+
             <div id="explicacion-zona" style="display:none;">
                 <div class="alerta-tutorial">
                     <p id="texto-explicativo"></p>
@@ -39,6 +37,6 @@
             </div>
         </section>
     </div>
-    <script src="script.js?v=5"></script>
+    <script src="script.js?v=6"></script>
 </body>
 </html>

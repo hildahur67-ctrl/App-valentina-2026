@@ -1,35 +1,27 @@
 const canvas = document.getElementById('plano');
 const ctx = canvas.getContext('2d');
 
-// Base de datos del Taller Teresiano
 const taller = [
     { 
         id: 1, 
-        titulo: "Distancia y Perímetro",
-        desc: "Punto 1: Hallar el perímetro del polígono sumando las distancias entre sus puntos.",
+        titulo: "Puntos 1, 4, 6 y 7: Distancia y Perímetro",
+        desc: "Halla la distancia entre puntos para calcular perímetros o tipos de triángulos[cite: 9, 51, 52].",
         formula: "d = √((x₂ - x₁)² + (y₂ - y₁)²)",
-        p: [{n:'A',x:-4,y:2},{n:'B',x:-5,y:-2},{n:'C',x:1,y:-4},{n:'D',x:3,y:3},{n:'E',x:5,y:-1}]
+        p: [{n:'A',x:-4,y:2},{n:'D',x:3,y:3}]
+    },
+    { 
+        id: 3, 
+        titulo: "Punto 3: Ecuación General a Canónica",
+        desc: "Transforma x² + y² + Dx + Ey + F = 0 para hallar el Centro (h, k) y el Radio (r)[cite: 25].",
+        formula: "(x - h)² + (y - k)² = r²",
+        p: [{n:'Centro',x:5,y:6}] // Ejemplo de la ecuación 3.a
     },
     { 
         id: 2, 
-        titulo: "Punto Medio (Centro)",
-        desc: "Punto 2: Para la ecuación de la circunferencia, primero halla el centro (Punto Medio).",
-        formula: "Pm = ((x₁+x₂)/2 , (y₁+y₂)/2)",
-        p: [{n:'A',x:1,y:6},{n:'B',x:13,y:8}]
-    },
-    { 
-        id: 6, 
-        titulo: "Clasificación de Triángulos",
-        desc: "Punto 6: Calcula las 3 distancias. Si todas son iguales es Equilátero, si hay 2 es Isósceles.",
-        formula: "Comparar d(AB), d(BC) y d(CA)",
-        p: [{n:'A',x:-1,y:2},{n:'B',x:-2,y:5},{n:'C',x:-4,y:1}]
-    },
-    { 
-        id: 9, 
-        titulo: "Trazo de Circunferencia",
-        desc: "Punto 9: Ubica el centro y abre el compás según el radio indicado.",
+        titulo: "Puntos 2, 5, 8 y 10: Ecuación de la Circunferencia",
+        desc: "Encuentra la ecuación usando el centro y el radio o el diámetro[cite: 23, 43, 64, 75].",
         formula: "(x - h)² + (y - k)² = r²",
-        p: [{n:'C',x:-1,y:0}] // Radio 1.6 unidades
+        p: [{n:'A',x:1,y:6},{n:'B',x:13,y:8}]
     }
 ];
 
@@ -41,7 +33,7 @@ function dibujarPlano() {
     canvas.width = parent.clientWidth * 0.95;
     canvas.height = parent.clientHeight * 0.95;
     centroX = canvas.width / 2; centroY = canvas.height / 2;
-    escala = Math.min(canvas.width, canvas.height) / 20;
+    escala = Math.min(canvas.width, canvas.height) / 22;
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
@@ -53,15 +45,23 @@ function dibujarPlano() {
     }
     ctx.strokeStyle = '#34495e'; ctx.lineWidth = 2;
     ctx.beginPath(); ctx.moveTo(centroX,0); ctx.lineTo(centroX,canvas.height); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(0,centroY); ctx.lineTo(canvas.width,centroY); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0,centroY,canvas.width,centroY); ctx.stroke();
 
-    // Dibujar puntos del ejercicio actual
+    // Puntos
     taller[ejActual].p.forEach(p => {
         const px = centroX + (p.x * escala); const py = centroY - (p.y * escala);
-        ctx.fillStyle = '#e74c3c'; ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI*2); ctx.fill();
+        ctx.fillStyle = '#e74c3c'; ctx.beginPath(); ctx.arc(px, py, 7, 0, Math.PI*2); ctx.fill();
         ctx.fillStyle = '#2c3e50'; ctx.font = "bold 12px Arial";
-        ctx.fillText(`${p.n}(${p.x},${p.y})`, px+8, py-8);
+        ctx.fillText(`${p.n}(${p.x},${p.y})`, px+10, py-10);
     });
+
+    // Si es ejercicio de circunferencia, dibujar el círculo guía
+    if(ejActual === 1) {
+        ctx.strokeStyle = 'rgba(52, 152, 219, 0.3)';
+        ctx.beginPath();
+        ctx.arc(centroX + (5 * escala), centroY - (6 * escala), 9 * escala, 0, Math.PI*2);
+        ctx.stroke();
+    }
 }
 
 function cambiarEjercicio() {
@@ -69,43 +69,34 @@ function cambiarEjercicio() {
     ejActual = parseInt(selector.value);
     const ejercicio = taller[ejActual];
 
-    // Actualizar Panel de Instrucciones con Fórmulas
     document.getElementById('instruccion').innerHTML = `
-        <div style="color:#2c3e50; border-bottom: 2px solid #3498db; margin-bottom:10px; padding-bottom:5px;">
-            ${ejercicio.titulo}
-        </div>
-        <p>${ejercicio.desc}</p>
-        <div style="background:#e8f4f8; padding:8px; border-radius:5px; font-family: monospace; font-size:12px;">
-            <b>Fórmula:</b> ${ejercicio.formula}
+        <div style="color:#2c3e50; font-weight:bold; border-bottom: 2px solid #3498db; margin-bottom:8px;">${ejercicio.titulo}</div>
+        <p style="font-size:13px; margin:5px 0;">${ejercicio.desc}</p>
+        <div style="background:#e8f4f8; padding:10px; border-radius:5px; font-family: 'Courier New', monospace; font-size:14px; text-align:center;">
+            ${ejercicio.formula}
         </div>
     `;
-    
     document.getElementById('explicacion-zona').style.display = "none";
     dibujarPlano();
 }
 
 function verificarRespuesta() {
-    // Lógica de validación (se mantiene similar para no confundir)
     const zona = document.getElementById('explicacion-zona');
     zona.style.display = "block";
-    document.getElementById('texto-explicativo').innerHTML = `
-        <b>¡Valentina!</b> Recuerda usar la fórmula:<br>
-        ${taller[ejActual].formula}<br>
-        Reemplaza los valores de los puntos rojos que ves en el plano.
-    `;
-    dibujarAyudaVisual();
-}
+    const texto = document.getElementById('texto-explicativo');
 
-function dibujarAyudaVisual() {
-    dibujarPlano();
-    const p1 = taller[ejActual].p[0]; const p2 = taller[ejActual].p[1];
-    if(!p2) return;
-    const x1 = centroX + p1.x*escala; const y1 = centroY - p1.y*escala;
-    const x2 = centroX + p2.x*escala; const y2 = centroY - p2.y*escala;
-
-    ctx.setLineDash([5, 5]); ctx.strokeStyle = "#ff0000"; ctx.lineWidth = 3;
-    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y1); ctx.stroke();
-    ctx.beginPath(); ctx.moveTo(x2, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    if(ejActual === 1) { // Explicación para Punto 3
+        texto.innerHTML = `
+            <b>Paso a Paso (Punto 3.a):</b><br>
+            1. Agrupa: (x² - 10x) + (y² - 12y) = -20<br>
+            2. Completa cuadrados: (10/2)² = <b>25</b> y (12/2)² = <b>36</b><br>
+            3. Suma a ambos lados: ... = -20 + 25 + 36 = <b>41</b><br>
+            4. Ecuación: (x - 5)² + (y - 6)² = 41<br>
+            <b>Centro: (5, 6) | Radio: √41 ≈ 6.4</b>
+        `;
+    } else {
+        texto.innerHTML = `Usa la fórmula: <b>${taller[ejActual].formula}</b>. Revisa los puntos en el plano y calcula con cuidado.`;
+    }
 }
 
 window.onload = cambiarEjercicio;

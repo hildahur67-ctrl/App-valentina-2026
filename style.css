@@ -1,16 +1,120 @@
-body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #f0f4f8; overflow: hidden; touch-action: manipulation; }
-#app-container { display: flex; flex-direction: column; height: 100vh; }
-header { background: #2c3e50; color: white; padding: 10px; text-align: center; }
-#selector-ejercicio { width: 90%; padding: 8px; border-radius: 5px; margin-bottom: 5px; font-size: 14px; }
-#progreso-bar { width: 90%; height: 8px; background: #455a64; border-radius: 10px; margin: 5px auto; overflow: hidden; }
-#avance { width: 10%; height: 100%; background: #4caf50; transition: width 0.5s ease; }
-canvas { flex-grow: 1; background: #ffffff; border-bottom: 1px solid #ddd; }
-#interaccion { padding: 10px; background: white; min-height: 220px; overflow-y: auto; }
-#instruccion { font-size: 14px; color: #2c3e50; font-weight: bold; margin-bottom: 8px; }
-.panel-practica { display: flex; flex-direction: column; gap: 8px; }
-#inputs-coordenadas { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; font-size: 12px; }
-.input-punto { padding: 5px; border: 1px solid #3498db; border-radius: 4px; width: 60px; }
-.entrada-respuesta { display: flex; gap: 10px; justify-content: center; margin-top: 5px; }
-input[type="number"] { padding: 10px; border: 2px solid #3498db; border-radius: 8px; width: 100px; font-size: 16px; }
-button { padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 8px; font-weight: bold; }
-.alerta-tutorial { background: #fff9c4; padding: 10px; border-radius: 8px; border-left: 5px solid #fbc02d; font-size: 13px; line-height: 1.4; }
+body { 
+    margin: 0; 
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: #f0f4f8; 
+    overflow: hidden; 
+    touch-action: manipulation; 
+}
+#app-container { 
+    display: flex; 
+    flex-direction: column; 
+    height: 100vh; 
+}
+header { 
+    background: #2c3e50; 
+    color: white; 
+    padding: 10px; 
+    text-align: center; 
+    z-index: 10;
+}
+#selector-ejercicio { 
+    width: 90%; 
+    padding: 10px; 
+    border-radius: 8px; 
+    font-size: 14px; 
+    margin-top: 5px;
+}
+#progreso-bar { 
+    width: 90%; 
+    height: 8px; 
+    background: #455a64; 
+    border-radius: 10px; 
+    margin: 8px auto; 
+    overflow: hidden; 
+}
+#avance { 
+    width: 10%; 
+    height: 100%; 
+    background: #4caf50; 
+    transition: width 0.5s ease; 
+}
+
+/* AQUÍ EL AJUSTE PARA BAJAR Y CENTRAR EL PLANO */
+#game-canvas { 
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff; 
+    padding-top: 20px; /* Baja el plano un poco */
+    padding-bottom: 10px;
+}
+canvas { 
+    max-width: 95%;
+    max-height: 95%;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+#interaccion { 
+    padding: 15px; 
+    background: white; 
+    min-height: 240px; 
+    border-top: 2px solid #ecf0f1;
+    overflow-y: auto; 
+}
+#instruccion { 
+    font-size: 15px; 
+    color: #2c3e50; 
+    font-weight: bold; 
+    margin-bottom: 12px; 
+    text-align: center;
+}
+.panel-practica { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+}
+#inputs-coordenadas { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+}
+.input-punto { 
+    padding: 8px; 
+    border: 1px solid #3498db; 
+    border-radius: 6px; 
+    width: 70px; 
+    font-size: 14px;
+}
+.entrada-respuesta { 
+    display: flex; 
+    gap: 12px; 
+    justify-content: center; 
+    margin-top: 10px; 
+}
+input[type="number"]#resultado-usuario { 
+    padding: 12px; 
+    border: 2px solid #2ecc71; 
+    border-radius: 10px; 
+    width: 110px; 
+    font-size: 18px; 
+}
+button { 
+    padding: 12px 25px; 
+    background: #2ecc71; 
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    font-weight: bold; 
+    cursor: pointer;
+}
+.alerta-tutorial { 
+    background: #fff9c4; 
+    padding: 12px; 
+    border-radius: 8px; 
+    border-left: 5px solid #fbc02d; 
+    margin-top: 10px;
+    font-size: 14px; 
+}

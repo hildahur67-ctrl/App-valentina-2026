@@ -9,12 +9,12 @@
 <body>
     <div id="app-container">
         <header>
-            <h1>Taller de Geometría 10°</h1>
+            <h1>Geometría 10°</h1>
             <select id="selector-ejercicio" onchange="cambiarEjercicio()">
-                <option value="0">Punto 1: Perímetro de Polígono</option>
-                <option value="1">Punto 2: Ecuación Diámetro AB</option>
+                <option value="0">Punto 1: Perímetro Polígono</option>
+                <option value="1">Punto 2: Diámetro AB</option>
                 <option value="2">Punto 6: Tipo de Triángulo</option>
-                <option value="3">Punto 7: Perímetro y Triángulo Rectángulo</option>
+                <option value="3">Punto 7: Reto Final</option>
             </select>
             <div id="progreso-bar"><div id="avance"></div></div>
         </header>
@@ -25,7 +25,6 @@
 
         <section id="interaccion">
             <div id="instruccion">Cargando reto...</div>
-            
             <div class="panel-practica">
                 <div id="inputs-coordenadas"></div>
                 <div class="entrada-respuesta">
@@ -33,7 +32,6 @@
                     <button onclick="verificarRespuesta()">Validar</button>
                 </div>
             </div>
-
             <div id="explicacion-zona" style="display:none;">
                 <div class="alerta-tutorial">
                     <p id="texto-explicativo"></p>
@@ -41,6 +39,6 @@
             </div>
         </section>
     </div>
-    <script src="script.js?v=3"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>

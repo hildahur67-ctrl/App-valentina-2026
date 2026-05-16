@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Trigo-Master Valentina</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=final_trigo">
 </head>
 <body>
     <div id="app-container">
@@ -25,19 +25,19 @@
             <div id="progreso-bar"><div id="avance"></div></div>
         </header>
 
-        <main id="game-canvas">
+        <div id="game-canvas">
             <canvas id="plano"></canvas>
-        </main>
+        </div>
 
         <section id="interaccion">
             <div id="zona-tutorial-inicial">
-                <div id="instruccion">Cargando explicación del tema...</div>
+                <div id="instruccion">Cargando explicación...</div>
                 <button id="btn-entendido" onclick="activarModoReto()">¡Listo, quiero intentarlo!</button>
             </div>
             
             <div id="zona-solucion-reto" style="display: none;">
                 <div class="entrada-respuesta">
-                    <input type="number" id="resultado-usuario" placeholder="Respuesta" step="0.01">
+                    <input type="number" id="resultado-usuario" placeholder="Dato" step="0.01">
                     <button id="btn-validar" onclick="verificarRespuesta()">Validar Hito</button>
                 </div>
             </div>
@@ -49,6 +49,6 @@
             </div>
         </section>
     </div>
-    <script src="script.js?v=figuras_finales"></script>
+    <script src="script.js?v=final_trigo"></script>
 </body>
 </html>

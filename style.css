@@ -1,85 +1,49 @@
-body { 
-    margin: 0; 
-    font-family: 'Segoe UI', sans-serif; 
-    background-color: #f8fafc; 
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden; /* Evita el scroll doble en el cuerpo */
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Trigo-Master Valentina</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>Trigonometría Teresiano</h1>
+            <select id="selector-ejercicio" onchange="cambiarEjercicio()">
+                <option value="0">Punto 1: Radianes a Grados</option>
+                <option value="1">Punto 2: Vueltas de Rueda</option>
+                <option value="2">Punto 3: Banda Transportadora</option>
+                <option value="3">Punto 4: Ángulo de Depresión</option>
+                <option value="4">Punto 5: Cuadrilátero ABCD</option>
+                <option value="5">Punto 6: Área con Ángulos Especiales</option>
+                <option value="6">Punto 7: Altura del Edificio (Doble Ángulo)</option>
+                <option value="7">Punto 8: Curso de Vuelo (Ley de Coseno)</option>
+                <option value="8">Punto 9: Altura de la Pierna</option>
+                <option value="9">Punto 10: Medida del Lado b (Ley de Seno)</option>
+            </select>
+            <div id="progreso-bar"><div id="avance"></div></div>
+        </header>
 
-header { 
-    background: #1e293b; 
-    color: white; 
-    padding: 8px 5px; /* Más delgado */
-    text-align: center; 
-    flex-shrink: 0;
-}
+        <main id="game-canvas">
+            <canvas id="plano"></canvas>
+        </main>
 
-header h1 { 
-    font-size: 1.1rem; /* Mucho más pequeño */
-    margin: 0 0 5px 0; 
-}
+        <section id="interaccion">
+            <div id="instruccion">Cargando reto...</div>
+            
+            <div class="entrada-respuesta">
+                <input type="number" id="resultado-usuario" placeholder="Respuesta" step="0.01">
+                <button onclick="verificarRespuesta()">Validar Hito</button>
+            </div>
 
-#selector-ejercicio { 
-    width: 90%; 
-    padding: 6px; 
-    font-size: 13px; 
-    border-radius: 5px;
-}
-
-#game-canvas { 
-    flex: 0 0 35vh; /* Reduce el plano al 35% de la pantalla */
-    background: #ffffff; 
-    border-bottom: 1px solid #e2e8f0;
-}
-
-canvas { width: 100%; height: 100%; }
-
-/* ZONA DE INTERACCIÓN CON SCROLL MEJORADO */
-#interaccion { 
-    flex: 1; 
-    overflow-y: auto; 
-    padding: 10px 15px;
-    background: white;
-    -webkit-overflow-scrolling: touch;
-}
-
-.entrada-respuesta { 
-    display: flex; 
-    gap: 8px; 
-    justify-content: center; 
-    margin: 10px 0;
-}
-
-input[type="number"] { 
-    padding: 8px; 
-    border: 2px solid #3498db; 
-    border-radius: 6px; 
-    width: 80px;
-    font-size: 16px;
-}
-
-button { 
-    padding: 8px 15px; 
-    background: #27ae60; 
-    color: white; 
-    border: none; 
-    border-radius: 6px; 
-    font-weight: bold;
-    font-size: 14px;
-}
-
-#instruccion div { font-size: 14px !important; }
-#instruccion p { font-size: 13px; margin: 5px 0; }
-
-.alerta-tutorial { 
-    background: #fef9c3; 
-    padding: 12px; 
-    border-radius: 8px; 
-    border-left: 4px solid #facc15; 
-    margin-top: 10px;
-    margin-bottom: 40px; /* Espacio para que el dedo pueda subirlo todo */
-    font-size: 13px;
-    color: #422006;
-}
+            <div id="explicacion-zona" style="display:none;">
+                <div class="alerta-tutorial">
+                    <p id="texto-explicativo"></p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="script.js?v=trigo"></script>
+</body>
+</html>

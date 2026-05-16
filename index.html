@@ -3,39 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Geo-Master Valentina</title>
+    <title>Trigo-Master Valentina</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="app-container">
         <header>
-            <h1>Taller Geometría Teresiano</h1>
+            <h1>Trigonometría Teresiano</h1>
             <select id="selector-ejercicio" onchange="cambiarEjercicio()">
-                <option value="0">Punto 1: Perímetro Polígono</option>
-                <option value="1">Punto 2: Diámetro AB</option>
-                <option value="2">Punto 3: Ec. General a Canónica</option>
-                <option value="3">Punto 4: Análisis de Plano</option>
-                <option value="4">Punto 5: Ec. Canónica y General</option>
-                <option value="5">Punto 6: Tipo de Triángulo</option>
-                <option value="6">Punto 7: Triángulo DEF</option>
-                <option value="7">Punto 8: Radio y Centro</option>
-                <option value="8">Punto 9: Trazo (Radio 1.6)</option>
-                <option value="9">Punto 10: Trazo (Radio 2.0)</option>
+                <option value="0">Punto 1: Radianes a Grados</option>
+                <option value="1">Punto 2: Vueltas de Rueda</option>
+                <option value="2">Punto 3: Banda Transportadora</option>
+                <option value="3">Punto 4: Ángulo de Depresión</option>
+                <option value="4">Punto 5: Cuadrilátero ABCD</option>
+                <option value="5">Punto 6: Área con Ángulos Especiales</option>
+                <option value="6">Punto 7: Altura del Edificio (Doble Ángulo)</option>
+                <option value="7">Punto 8: Curso de Vuelo (Ley de Coseno)</option>
+                <option value="8">Punto 9: Altura de la Pierna</option>
+                <option value="9">Punto 10: Medida del Lado b (Ley de Seno)</option>
             </select>
             <div id="progreso-bar"><div id="avance"></div></div>
         </header>
-        <main id="game-canvas"><canvas id="plano"></canvas></main>
+
+        <main id="game-canvas">
+            <canvas id="plano"></canvas>
+        </main>
+
         <section id="interaccion">
-            <div id="instruccion">Cargando taller...</div>
+            <div id="instruccion">Cargando reto...</div>
+            
             <div class="entrada-respuesta">
-                <input type="number" id="resultado-usuario" placeholder="Dato/Radio" step="0.01">
+                <input type="number" id="resultado-usuario" placeholder="Respuesta" step="0.01">
                 <button onclick="verificarRespuesta()">Validar Hito</button>
             </div>
+
             <div id="explicacion-zona" style="display:none;">
-                <div class="alerta-tutorial"><p id="texto-explicativo"></p></div>
+                <div class="alerta-tutorial">
+                    <p id="texto-explicativo"></p>
+                </div>
             </div>
         </section>
     </div>
-    <script src="script.js?v=10"></script>
+    <script src="script.js?v=trigo"></script>
 </body>
 </html>

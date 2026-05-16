@@ -16,11 +16,11 @@
                 <option value="2">Punto 3: Banda Transportadora</option>
                 <option value="3">Punto 4: Ángulo de Depresión</option>
                 <option value="4">Punto 5: Cuadrilátero ABCD</option>
-                <option value="5">Punto 6: Área con Ángulos Especiales</option>
-                <option value="6">Punto 7: Altura del Edificio (Doble Ángulo)</option>
-                <option value="7">Punto 8: Curso de Vuelo (Ley de Coseno)</option>
+                <option value="5">Punto 6: Área Triángulos</option>
+                <option value="6">Punto 7: Edificio Doble Ángulo</option>
+                <option value="7">Punto 8: Avión (Ley de Coseno)</option>
                 <option value="8">Punto 9: Altura de la Pierna</option>
-                <option value="9">Punto 10: Medida del Lado b (Ley de Seno)</option>
+                <option value="9">Punto 10: Lado b (Ley de Seno)</option>
             </select>
             <div id="progreso-bar"><div id="avance"></div></div>
         </header>
@@ -30,11 +30,16 @@
         </main>
 
         <section id="interaccion">
-            <div id="instruccion">Cargando reto...</div>
+            <div id="zona-tutorial-inicial">
+                <div id="instruccion">Cargando explicación del tema...</div>
+                <button id="btn-entendido" onclick="activarModoReto()">¡Listo, quiero intentarlo!</button>
+            </div>
             
-            <div class="entrada-respuesta">
-                <input type="number" id="resultado-usuario" placeholder="Respuesta" step="0.01">
-                <button onclick="verificarRespuesta()">Validar Hito</button>
+            <div id="zona-solucion-reto" style="display: none;">
+                <div class="entrada-respuesta">
+                    <input type="number" id="resultado-usuario" placeholder="Respuesta" step="0.01">
+                    <button id="btn-validar" onclick="verificarRespuesta()">Validar Hito</button>
+                </div>
             </div>
 
             <div id="explicacion-zona" style="display:none;">
@@ -44,6 +49,6 @@
             </div>
         </section>
     </div>
-    <script src="script.js?v=trigo"></script>
+    <script src="script.js?v=flujo"></script>
 </body>
 </html>

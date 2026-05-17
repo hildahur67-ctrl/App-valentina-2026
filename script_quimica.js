@@ -35,7 +35,7 @@ const tallerQuimica = [
             { 
                 elemento: "Carbono (C)", ecuacion: "Capa externa: 2s² 2p² (4 e-)", pregunta: "Al estar justo en la mitad (4 electrones), ¿este elemento cede, recibe o <b>comparte</b>?", r: "comparte", 
                 d: "<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>El Silicio (4 e- externos):</i> No le es fácil ganar 4 ni perder 4, así que se asocia. El Silicio <b>comparte</b>.<br><br><b>✏️ TU RETO:</b> Analiza el comportamiento del <b>Carbono (C)</b>.",
-                pista: "Los elements del grupo 4A forman enlaces covalentes donde se asocian. Escribe: comparte", tipo: "bohr" 
+                pista: "Los elementos del grupo 4A forman enlaces covalentes donde se asocian. Escribe: comparte", tipo: "bohr" 
             }
         ]
     },
@@ -45,7 +45,7 @@ const tallerQuimica = [
         incisos: [
             { 
                 elemento: "Gas Hidrógeno (H₂)", ecuacion: "H - H", pregunta: "¿Qué tipo de enlace presenta la molécula de Hidrógeno (<b>H2</b>)?", r: "covalente apolar", 
-                d: "<b>👁️ 1. El Mapa Visual:</b> Cuando dos no metales idénticos se unen, comparten electrones con la misma fuerza exacta.<br><br><b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>El gas Yodo (I₂):</i> Son dos gemelos no metales unidos. Su enlace es <b>covalente apolar</b>.<br><br><b>✏️ TU RETO:</b> ¿Qué fuerza une al <b>Hidrógeno (H2)</b>? (Responde: covalente apolar)",
+                d: "<b>👁️ 1. El Mapa Visual:</b> Cuando dos no metales idénticos se unen, comparten electrones con la misma fuerza exacta.<br><br><b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>El gas Yodo (I₂):</i> Son dos gemelos no metales unidos. Su enlace es <b>covalente apolar</b>.<br><br><b>✏️ TU RETO:</b> ¿Qué fuerza une al <b>Hidrógeno (H2)</b>? (Puedes escribir solo: covalente / apolar / covalente apolar)",
                 pista: "Dos no metales idénticos comparten electrones con la misma fuerza. Escribe: covalente apolar", tipo: "enlace" 
             },
             { 
@@ -147,7 +147,9 @@ function verificarRespuesta() {
     const zona = document.getElementById('explicacion-zona');
     const texto = document.getElementById('texto-explicativo');
 
-    if (rU === inc.r) {
+    // VALIDACIÓN INTELIGENTE FLEXIBLE
+    // Si la respuesta del usuario contiene la palabra clave objetivo, se toma como válida
+    if (rU === inc.r || rU.includes("covalente") || rU.includes("apolar") || rU.includes(inc.r)) {
         incisoActual++;
         
         if (incisoActual < p.incisos.length) {

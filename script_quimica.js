@@ -29,7 +29,7 @@ const tallerQuimica = [
             { 
                 elemento: "Calcio (Ca)", ecuacion: "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²", pregunta: "¿Cuál es la <b>Capa de Valencia</b> para el Calcio?", r: "4", 
                 d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Titanio ($1s^{2}2s^{2}2p^{6}3s^{2}3p^{6}4s^{2}3d^{2}$):</i> El nivel más alto de la superficie sigue siendo el grande 4. Capa de valencia = <b>4</b>.<br><br><b>✏️ TU RETO:</b> Descubre la capa del <b>Calcio (Ca)</b>.`,
-                pista: "Mira el final de la cadena: llegó hasta el nivel grande 4.", tipo: "bohr" 
+                pista: "Mira the final de la cadena: llegó hasta el nivel grande 4.", tipo: "bohr" 
             },
             { 
                 elemento: "Argón (Ar)", ecuacion: "1s² 2s² 2p⁶ 3s² 3p⁶", pregunta: "¿Cuál es la <b>Capa de Valencia</b> para el Argón?", r: "3", 
@@ -121,5 +121,22 @@ const tallerQuimica = [
             },
             { 
                 elemento: "Reacción f", ecuacion: "ZnCO₃(s) → CO₂(g) + ZnO(s)", pregunta: "Clasifica esta reacción: (sintesis / descomposicion / sustitucion / combustion)", r: "descomposicion", 
-                d: `<b>📋 EJEMPLO GUÍA
-                
+                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>$2KClO_{3} \rightarrow 2KCl + 3O_{2}$:</i> Una sola molécula reactiva se fragmentó en dos productos independientes. Es una <b>descomposicion</b>.<br><br><b>✏️ TU RETO:</b> Clasifica el inciso f.`,
+                pista: "Un carbonato que al calentarse se rompe en un óxido y gas carbónico. Escribe: descomposicion", tipo: "tubo" 
+            },
+            { 
+                elemento: "Reacción g", ecuacion: "Al₂(SO₄)₃(ac) + 6KOH(ac) → 2Al(OH)₃(s) + 3K₂SO₄(ac)", pregunta: "Clasifica esta reacción: (sintesis / descomposicion / sustitucion / combustion)", r: "sustitucion", 
+                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>$BaCl_{2} + Na_{2}SO_{4} \rightarrow BaSO_{4} + 2NaCl$:</i> Los metales cambiaron de posición mutua. Es una <b>sustitucion</b>.<br><br><b>✏️ TU RETO:</b> Clasifica el inciso g.`,
+                pista: "El Aluminio y el Potasio intercambian sus radicales. Escribe: sustitucion", tipo: "tubo" 
+            },
+            { 
+                elemento: "Reacción h", ecuacion: "Pb(s) + O₂(g) → PbO₂(s)", pregunta: "Clasifica esta reacción: (sintesis / descomposicion / sustitucion / combustion)", r: "sintesis", 
+                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>$2Mg + O_{2} \rightarrow 2MgO$:</i> Dos elementos puros se combinan para armar un compuesto. Es una <b>sintesis</b>.<br><br><b>✏️ TU RETO:</b> Cierra el punto clasificando el inciso h.`,
+                pista: "Plomo más Oxígeno forman Dióxido de plomo, una unión directa. Escribe: sintesis", tipo: "tubo" 
+            }
+        ]
+    },
+    {
+        id: 5,
+        t: "Punto 4 y 5: Conteo y Verificación de Balanzas",
+        incisos:

@@ -8,32 +8,32 @@ const tallerQuimica = [
         incisos: [
             { 
                 elemento: "Carbono (C)", ecuacion: "1s² 2s² 2p²", pregunta: "¿Cuál es la <b>Capa de Valencia</b> para el Carbono?", r: "2", 
-                d: `<b>👁️ 1. El Mapa Visual:</b> Los electrones se organizan en niveles de energía (pisos). La Capa de Valencia es el nivel más alto al que logró llegar el elemento.<br><br><b>🛠️ 2. La Estrategia:</b> Busca el número grande más alto al inicio de las letras.<br><br><b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Oxígeno ($1s^{2}2s^{2}2p^{4}$):</i> El nivel grande más alto es el 2. Capa de valencia = <b>2</b>.<br><br><b>✏️ TU RETO:</b> Sigue el orden para el <b>Carbono (C)</b>. Digita solo el número.`,
+                d: `<b>👁️ 1. El Mapa Visual:</b> Los electrones se organizan en niveles de energía (pisos). La Capa de Valencia es el nivel más alto al que logró llegar el elemento.<br><br><b>🛠️ 2. La Estrategia:</b> Busca el número grande más alto al inicio de las letras.<br><br><b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Oxígeno (1s² 2s² 2p⁴):</i> El nivel grande más alto es el 2. Capa de valencia = <b>2</b>.<br><br><b>✏️ TU RETO:</b> Sigue el orden para el <b>Carbono (C)</b>. Digita solo el número.`,
                 pista: "Mira la distribución: 1s² 2s² 2p². El número grande más alto es el 2.", tipo: "bohr" 
             },
             { 
                 elemento: "Aluminio (Al)", ecuacion: "1s² 2s² 2p⁶ 3s² 3p¹", pregunta: "¿Cuál es la <b>Capa de Valencia</b> para el Aluminio?", r: "3", 
-                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Cloro ($1s^{2}2s^{2}2p^{6}3s^{2}3p^{5}$):</i> El número grande máximo es el 3. Capa de valencia = <b>3</b>.<br><br><b>✏️ TU RETO:</b> Aplica la lógica para el <b>Aluminio (Al)</b>. Digita el número.`,
+                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Cloro (1s² 2s² 2p⁶ 3s² 3p⁵):</i> El número grande máximo es el 3. Capa de valencia = <b>3</b>.<br><br><b>✏️ TU RETO:</b> Aplica la lógica para el <b>Aluminio (Al)</b>. Digita el número.`,
                 pista: "Busca el número grande máximo. Llegó hasta el nivel 3.", tipo: "bohr" 
             },
             { 
                 elemento: "Fósforo (P)", ecuacion: "1s² 2s² 2p⁶ 3s² 3p³", pregunta: "¿Cuál es la <b>Capa de Valencia</b> para el Fósforo?", r: "3", 
-                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Azufre ($1s^{2}2s^{2}2p^{6}3s^{2}3p^{4}$):</i> El número máximo es el 3. Capa de valencia = <b>3</b>.<br><br><b>✏️ TU RETO:</b> Sigue los pasos para el <b>Fósforo (P)</b>.`,
+                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Azufre (1s² 2s² 2p⁶ 3s² 3p⁴):</i> El número máximo es el 3. Capa de valencia = <b>3</b>.<br><br><b>✏️ TU RETO:</b> Sigue los pasos para el <b>Fósforo (P)</b>.`,
                 pista: "El nivel mayor que aparece al inicio de sus letras externas es el 3.", tipo: "bohr" 
             },
             { 
                 elemento: "Sodio (Na)", ecuacion: "1s² 2s² 2p⁶ 3s¹", pregunta: "¿Cuál es la <b>Capa de Valencia</b> para el Sodio?", r: "3", 
-                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Potasio ($1s^{2}2s^{2}2p^{6}3s^{2}3p^{6}4s^{1}$):</i> El número grande mayor es 4. Capa de valencia = <b>4</b>.<br><br><b>✏️ TU RETO:</b> Sigue el orden para el <b>Sodio (Na)</b>.`,
+                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Potasio (1s² 2s² 2p⁶ 3s² 3p⁶ 4s¹):</i> El número grande mayor es 4. Capa de valencia = <b>4</b>.<br><br><b>✏️ TU RETO:</b> Sigue el orden para el <b>Sodio (Na)</b>.`,
                 pista: "El último piso de energía alcanzado tiene el número grande 3.", tipo: "bohr" 
             },
             { 
                 elemento: "Calcio (Ca)", ecuacion: "1s² 2s² 2p⁶ 3s² 3p⁶ 4s²", pregunta: "¿Cuál es la <b>Capa de Valencia</b> para el Calcio?", r: "4", 
-                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Titanio ($1s^{2}2s^{2}2p^{6}3s^{2}3p^{6}4s^{2}3d^{2}$):</i> El nivel más alto de la superficie sigue siendo el grande 4. Capa de valencia = <b>4</b>.<br><br><b>✏️ TU RETO:</b> Descubre la capa del <b>Calcio (Ca)</b>.`,
+                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Titanio (1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d²):</i> El nivel más alto de la superficie sigue siendo el grande 4. Capa de valencia = <b>4</b>.<br><br><b>✏️ TU RETO:</b> Descubre la capa del <b>Calcio (Ca)</b>.`,
                 pista: "Mira el final de la cadena: llegó hasta el nivel grande 4.", tipo: "bohr" 
             },
             { 
                 elemento: "Argón (Ar)", ecuacion: "1s² 2s² 2p⁶ 3s² 3p⁶", pregunta: "¿Cuál es la <b>Capa de Valencia</b> para el Argón?", r: "3", 
-                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Neón ($1s^{2}2s^{2}2p^{6}$):</i> El número grande máximo es el 2. Capa de valencia = <b>2</b>.<br><br><b>✏️ TU RETO:</b> Aplica el patrón en el gas noble <b>Argón (Ar)</b>.`,
+                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>Para el Neón (1s² 2s² 2p⁶):</i> El número grande máximo es el 2. Capa de valencia = <b>2</b>.<br><br><b>✏️ TU RETO:</b> Aplica el patrón en el gas noble <b>Argón (Ar)</b>.`,
                 pista: "Su configuración externa cierra en el nivel principal de energía 3.", tipo: "bohr" 
             }
         ]
@@ -65,12 +65,12 @@ const tallerQuimica = [
         incisos: [
             { 
                 elemento: "Gas Hidrógeno (H₂)", ecuacion: "H - H", pregunta: "¿Qué tipo de enlace presenta la molécula de Hidrógeno (<b>H2</b>)?", r: "covalente apolar", 
-                d: `<b>👁️ 1. El Mapa Visual:</b> Cuando dos no metales idénticos se unen, comparten electrones con la misma fuerza exacta.<br><br><b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>El gas Yodo ($I_{2}$):</i> Son dos gemelos no metales unidos. Su enlace es <b>covalente apolar</b>.<br><br><b>✏️ TU RETO:</b> ¿Qué fuerza une al <b>Hidrógeno (H2)</b>? (Responde: covalente apolar / covalente polar / ionico)`,
+                d: `<b>👁️ 1. El Mapa Visual:</b> Cuando dos no metales idénticos se unen, comparten electrones con la misma fuerza exacta.<br><br><b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>El gas Yodo (I₂):</i> Son dos gemelos no metales unidos. Su enlace es <b>covalente apolar</b>.<br><br><b>✏️ TU RETO:</b> ¿Qué fuerza une al <b>Hidrógeno (H2)</b>? (Responde: covalente apolar / covalente polar / ionico)`,
                 pista: "Dos no metales idénticos comparten electrones con la misma fuerza. Escribe: covalente apolar", tipo: "enlace" 
             },
             { 
                 elemento: "Gas Cloro (Cl₂)", ecuacion: "Cl - Cl", pregunta: "¿Qué tipo de enlace une al gas Cloro (<b>Cl2</b>)?", r: "covalente apolar", 
-                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>El gas Bromo ($Br_{2}$):</i> Comparten de forma simétrica. Enlace = <b>covalente apolar</b>.<br><br><b>✏️ TU RETO:</b> Sigue el mismo patrón para el gas <b>Cloro (Cl2)</b>.`,
+                d: `<b>📋 EJEMPLO GUÍA PASO A PASO:</b><br><i>El gas Bromo (Br₂):</i> Comparten de forma simétrica. Enlace = <b>covalente apolar</b>.<br><br><b>✏️ TU RETO:</b> Sigue el mismo patrón para el gas <b>Cloro (Cl2)</b>.`,
                 pista: "Dos átomos idénticos de cloro compartiendo de forma simétrica. Escribe: covalente apolar", tipo: "enlace" 
             }
         ]
@@ -109,8 +109,8 @@ function dibujarEsquemaQuimico() {
     } 
     else if (tipoGrafico === "enlace") {
         ctx.strokeStyle = "#0d9488";
-        ctx.beginPath(); ctx.arc(w/2 - 25, h/2, 25, 0, Math.PI*2); ctx.stroke();
-        ctx.beginPath(); ctx.arc(w/2 + 25, h/2, 25, 0, Math.PI*2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(w/2 - 25, h/2, 21, 0, Math.PI*2); ctx.stroke();
+        ctx.beginPath(); ctx.arc(w/2 + 25, h/2, 21, 0, Math.PI*2); ctx.stroke();
     } 
     else {
         ctx.strokeStyle = "#0f172a"; ctx.lineWidth = 2;
@@ -171,14 +171,14 @@ function verificarRespuesta() {
         incisoActual++;
         
         if (incisoActual < p.incisos.length) {
-            alert("¡Excelente Valentina! Inciso completado. Pasamos al siguiente elemento del mismo punto.");
+            alert("¡Excelente Valentina! Inciso completado. Pasamos al siguiente elemento.");
             cargarContenidoInciso();
         } else {
             puntoActual++;
             incisoActual = 0;
             
             if (puntoActual < tallerQuimica.length) {
-                alert("¡Fabuloso! Has completado todos los incisos de este bloque. Pasamos automáticamente al siguiente punto del taller.");
+                alert("¡Fabuloso! Has completado todos los incisos de este bloque. Pasamos al siguiente punto.");
                 document.getElementById('selector-ejercicio').value = puntoActual;
                 cargarContenidoInciso();
             } else {
@@ -193,7 +193,7 @@ function verificarRespuesta() {
         texto.innerHTML = `
             <b>Pista del Laboratorio:</b><br>
             El dato no coincide. Revisa la ayuda de arriba: ${inc.pista}
-        `;
+        ```;
     }
 }
 
